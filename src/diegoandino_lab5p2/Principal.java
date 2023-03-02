@@ -3,6 +3,7 @@ package diegoandino_lab5p2;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.DefaultListModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 public class Principal extends javax.swing.JFrame {
@@ -280,6 +281,16 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personajes");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("DC");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Marvel");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mortal Kombat");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Capcom");
+        treeNode1.add(treeNode2);
+        jT_Personajes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(jT_Personajes);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -289,11 +300,7 @@ public class Principal extends javax.swing.JFrame {
         jB_Regreso.setForeground(new java.awt.Color(255, 255, 255));
         jB_Regreso.setText("Regreso");
 
-        jL_Personajes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jL_Personajes.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(jL_Personajes);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -434,30 +441,30 @@ public class Principal extends javax.swing.JFrame {
 
     private void jB_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ListarActionPerformed
         //VENTANA LISTAR
+        jF_Listar.pack();
+        jF_Listar.setLocationRelativeTo(this);
         this.setVisible(false);
         jF_Listar.setVisible(true);
-        jF_Listar.setSize(514, 420);
-        jF_Listar.setLocationRelativeTo(null);
-        jF_Listar.setResizable(false);
+        
     }//GEN-LAST:event_jB_ListarActionPerformed
 
     private void jB_BattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BattleActionPerformed
         //VENTANA LUCHA
+        jF_Battle.pack();
+        jF_Battle.setLocationRelativeTo(this);
         this.setVisible(false);
         jF_Battle.setVisible(true);
-        jF_Battle.setSize(460, 360);
-        jF_Battle.setLocationRelativeTo(null);
-        jF_Battle.setResizable(false);
+        
 
     }//GEN-LAST:event_jB_BattleActionPerformed
 
     private void jB_Crear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Crear2ActionPerformed
         //VENTANA CREAR
+        jF_Crear.pack();
+        jF_Crear.setLocationRelativeTo(this);
         this.setVisible(false);
         jF_Crear.setVisible(true);
-        jF_Crear.setSize(400, 325);
-        jF_Crear.setLocationRelativeTo(null);
-        jF_Crear.setResizable(false);
+        
 
     }//GEN-LAST:event_jB_Crear2ActionPerformed
 
@@ -543,6 +550,7 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+        
         
         
     }
