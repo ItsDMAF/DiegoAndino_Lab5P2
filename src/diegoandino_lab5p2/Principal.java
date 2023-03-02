@@ -60,6 +60,20 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jL_Personajes = new javax.swing.JList<>();
         jF_Battle = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        CB_Jug1 = new javax.swing.JComboBox<>();
+        CB_Jug2 = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jL_Jug1 = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jL_Jug2 = new javax.swing.JList<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        AreaBattle = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
+        jBT_Fis = new javax.swing.JButton();
+        jBT_Men = new javax.swing.JButton();
+        jBT_Res = new javax.swing.JButton();
+        Salida = new javax.swing.JButton();
         bG_Universo = new javax.swing.ButtonGroup();
         PopMenu = new javax.swing.JPopupMenu();
         Eliminar = new javax.swing.JMenuItem();
@@ -360,15 +374,141 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel4.setBackground(new java.awt.Color(255, 102, 102));
+
+        CB_Jug1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Mortal Kombat", "Capcom" }));
+        CB_Jug1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_Jug1ItemStateChanged(evt);
+            }
+        });
+
+        CB_Jug2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Mortal Kombat", "Capcom" }));
+        CB_Jug2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                CB_Jug2ItemStateChanged(evt);
+            }
+        });
+        CB_Jug2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_Jug2ActionPerformed(evt);
+            }
+        });
+
+        jL_Jug1.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jL_Jug1);
+
+        jL_Jug2.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jL_Jug2);
+
+        AreaBattle.setColumns(20);
+        AreaBattle.setRows(5);
+        jScrollPane5.setViewportView(AreaBattle);
+
+        jLabel11.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("VS");
+
+        jBT_Fis.setText("Ataque Fisico");
+        jBT_Fis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBT_FisMouseClicked(evt);
+            }
+        });
+
+        jBT_Men.setText("Ataque Mental");
+        jBT_Men.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBT_MenActionPerformed(evt);
+            }
+        });
+
+        jBT_Res.setText("Resistencia");
+        jBT_Res.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBT_ResActionPerformed(evt);
+            }
+        });
+
+        Salida.setText("Salida");
+        Salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalidaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CB_Jug1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(65, 65, 65)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CB_Jug2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jBT_Fis)
+                                .addGap(47, 47, 47)
+                                .addComponent(jBT_Men)
+                                .addGap(42, 42, 42)
+                                .addComponent(jBT_Res))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(Salida)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CB_Jug1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CB_Jug2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel11)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBT_Fis)
+                    .addComponent(jBT_Men)
+                    .addComponent(jBT_Res))
+                .addGap(18, 18, 18)
+                .addComponent(Salida)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jF_BattleLayout = new javax.swing.GroupLayout(jF_Battle.getContentPane());
         jF_Battle.getContentPane().setLayout(jF_BattleLayout);
         jF_BattleLayout.setHorizontalGroup(
             jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jF_BattleLayout.setVerticalGroup(
             jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         Eliminar.setText("jMenuItem1");
@@ -585,6 +725,48 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EliminarActionPerformed
 
+    private void CB_Jug1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Jug1ItemStateChanged
+        jL_Jug1.setModel(Listar(CB_Jug1.getSelectedItem().toString()));
+    }//GEN-LAST:event_CB_Jug1ItemStateChanged
+
+    private void CB_Jug2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_CB_Jug2ItemStateChanged
+        jL_Jug2.setModel(Listar(CB_Jug2.getSelectedItem().toString()));
+    }//GEN-LAST:event_CB_Jug2ItemStateChanged
+
+    private void CB_Jug2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_Jug2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CB_Jug2ActionPerformed
+
+    private void jBT_FisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBT_FisMouseClicked
+        Personajes jugador1 = (Personajes) CB_Jug1.getSelectedItem();
+        Personajes jugador2 = (Personajes) CB_Jug2.getSelectedItem();
+
+        double dan = 0.33/1;
+        int chance = aleatorio.nextInt(8);
+        int vidAct1 = jugador1.getHp();
+        int vidAct2 = jugador2.getHp();
+        if (chance == 1) {
+            jugador1.setHp((int) (vidAct1 + 0.08));
+        }
+
+        AreaBattle.setText("Jugador 1 uso ataque fisico..."
+        );
+    }//GEN-LAST:event_jBT_FisMouseClicked
+
+    private void jBT_MenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBT_MenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBT_MenActionPerformed
+
+    private void jBT_ResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBT_ResActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBT_ResActionPerformed
+
+    private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed
+        // Salir
+        jF_Battle.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_SalidaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -674,9 +856,16 @@ public class Principal extends javax.swing.JFrame {
     Personajes perSel = new Personajes();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea AreaBattle;
+    private javax.swing.JComboBox<String> CB_Jug1;
+    private javax.swing.JComboBox<String> CB_Jug2;
     private javax.swing.JMenuItem Eliminar;
     private javax.swing.JPopupMenu PopMenu;
+    private javax.swing.JButton Salida;
     private javax.swing.ButtonGroup bG_Universo;
+    private javax.swing.JButton jBT_Fis;
+    private javax.swing.JButton jBT_Men;
+    private javax.swing.JButton jBT_Res;
     private javax.swing.JButton jB_Battle;
     private javax.swing.JButton jB_Crear2;
     private javax.swing.JButton jB_EVolver;
@@ -686,9 +875,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JFrame jF_Battle;
     private javax.swing.JFrame jF_Crear;
     private javax.swing.JFrame jF_Listar;
+    private javax.swing.JList<String> jL_Jug1;
+    private javax.swing.JList<String> jL_Jug2;
     private javax.swing.JList<String> jL_Personajes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -700,6 +892,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRB_CapCom;
     private javax.swing.JRadioButton jRB_DC;
     private javax.swing.JRadioButton jRB_MK;
@@ -710,6 +903,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSpinner jS_Mental;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTF_Debilidad;
     private javax.swing.JTextField jTF_Nombre;
     private javax.swing.JTextField jTF_Poder;
