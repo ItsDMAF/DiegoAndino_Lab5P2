@@ -27,37 +27,113 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jF_Crear = new javax.swing.JFrame();
+        jF_Listar = new javax.swing.JFrame();
+        jF_Battle = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
-        jB_Crear = new javax.swing.JButton();
+        jB_Listar = new javax.swing.JButton();
+        jB_Battle = new javax.swing.JButton();
+        jB_Crear2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jF_CrearLayout = new javax.swing.GroupLayout(jF_Crear.getContentPane());
+        jF_Crear.getContentPane().setLayout(jF_CrearLayout);
+        jF_CrearLayout.setHorizontalGroup(
+            jF_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jF_CrearLayout.setVerticalGroup(
+            jF_CrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jF_ListarLayout = new javax.swing.GroupLayout(jF_Listar.getContentPane());
+        jF_Listar.getContentPane().setLayout(jF_ListarLayout);
+        jF_ListarLayout.setHorizontalGroup(
+            jF_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jF_ListarLayout.setVerticalGroup(
+            jF_ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jF_BattleLayout = new javax.swing.GroupLayout(jF_Battle.getContentPane());
+        jF_Battle.getContentPane().setLayout(jF_BattleLayout);
+        jF_BattleLayout.setHorizontalGroup(
+            jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jF_BattleLayout.setVerticalGroup(
+            jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
 
-        jB_Crear.setBackground(new java.awt.Color(51, 51, 51));
-        jB_Crear.setText("CREAR");
-        jB_Crear.addActionListener(new java.awt.event.ActionListener() {
+        jB_Listar.setBackground(new java.awt.Color(51, 51, 51));
+        jB_Listar.setForeground(new java.awt.Color(255, 255, 255));
+        jB_Listar.setText("LISTAR");
+        jB_Listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_CrearActionPerformed(evt);
+                jB_ListarActionPerformed(evt);
             }
         });
+
+        jB_Battle.setBackground(new java.awt.Color(51, 51, 51));
+        jB_Battle.setForeground(new java.awt.Color(255, 255, 255));
+        jB_Battle.setText("BATTLE");
+        jB_Battle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_BattleActionPerformed(evt);
+            }
+        });
+
+        jB_Crear2.setBackground(new java.awt.Color(51, 51, 51));
+        jB_Crear2.setForeground(new java.awt.Color(255, 255, 255));
+        jB_Crear2.setText("CREAR");
+        jB_Crear2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_Crear2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("//---------GAME START---------//");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jB_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jB_Crear2, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(jB_Battle, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(jB_Listar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(138, 138, 138))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(54, 54, 54))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jB_Crear, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jB_Crear2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jB_Listar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jB_Battle, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -74,9 +150,17 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jB_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_CrearActionPerformed
+    private void jB_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ListarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jB_CrearActionPerformed
+    }//GEN-LAST:event_jB_ListarActionPerformed
+
+    private void jB_BattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BattleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_BattleActionPerformed
+
+    private void jB_Crear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Crear2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_Crear2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +198,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jB_Crear;
+    private javax.swing.JButton jB_Battle;
+    private javax.swing.JButton jB_Crear2;
+    private javax.swing.JButton jB_Listar;
+    private javax.swing.JFrame jF_Battle;
+    private javax.swing.JFrame jF_Crear;
+    private javax.swing.JFrame jF_Listar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
