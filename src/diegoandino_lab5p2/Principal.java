@@ -1,24 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package diegoandino_lab5p2;
 
-/**
- *
- * @author Diego Andino
- */
+import java.util.ArrayList;
+import java.util.Random;
+import javax.swing.tree.DefaultMutableTreeNode;
+
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    
     public Principal() {
         setVisible(true);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
+    ArrayList<Personajes> personajes = new ArrayList();
+    Random aleatorio = new Random();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +65,7 @@ public class Principal extends javax.swing.JFrame {
         jB_Crear2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -187,7 +184,7 @@ public class Principal extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(jTF_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
                                     .addComponent(jS_Fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(24, 24, 24)
@@ -196,11 +193,12 @@ public class Principal extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGap(28, 28, 28)
                                         .addComponent(jLabel8)
-                                        .addGap(32, 32, 32)
+                                        .addGap(49, 49, 49)
                                         .addComponent(jLabel9))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
                                         .addComponent(jS_Mental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jS_Fuerza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jS_HP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -215,9 +213,9 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jRB_Marvel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRB_DC)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRB_CapCom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRB_MK)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -280,7 +278,7 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
         jScrollPane2.setViewportView(jT_Personajes);
 
@@ -355,7 +353,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 102, 102));
         jPanel1.setForeground(new java.awt.Color(204, 204, 204));
 
         jB_Listar.setBackground(new java.awt.Color(51, 51, 51));
@@ -489,6 +487,22 @@ public class Principal extends javax.swing.JFrame {
 
     private void jB_crear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_crear1ActionPerformed
         //Crear
+        String uni = "";
+        if (jRB_Marvel.isSelected()) {
+            uni = "Marvel";
+        } else if (jRB_DC.isSelected()) {
+            uni = "DC";
+        } else if (jRB_CapCom.isSelected()) {
+            uni = "Capcom";
+        } else if (jRB_MK.isSelected()) {
+            uni = "MK";
+        }
+        String Nombre = jTF_Nombre.getText();
+        String Poder = jTF_Poder.getText();
+        String Debilidad = jTF_Debilidad.getText();
+
+        Personajes.add(new Personajes(Nombre, Poder, Debilidad, uni, (int)jS_Fuerza.getValue(), (int)jS_Fisica.getValue(), (int)jS_Mental.getValue(), (int)jS_HP.getValue()));
+
 
     }//GEN-LAST:event_jB_crear1ActionPerformed
 
@@ -529,7 +543,12 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+        
+        
     }
+    
+    DefaultMutableTreeNode nodo_sel = new DefaultMutableTreeNode();
+    Personajes per_sel = new Personajes();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bG_Universo;
