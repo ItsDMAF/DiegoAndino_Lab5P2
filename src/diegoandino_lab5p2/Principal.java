@@ -1,19 +1,20 @@
-
 package diegoandino_lab5p2;
 
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class Principal extends javax.swing.JFrame {
 
-    
     public Principal() {
         setVisible(true);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        actu_tree();
     }
     ArrayList<Personajes> personajes = new ArrayList();
     Random aleatorio = new Random();
@@ -60,6 +61,8 @@ public class Principal extends javax.swing.JFrame {
         jL_Personajes = new javax.swing.JList<>();
         jF_Battle = new javax.swing.JFrame();
         bG_Universo = new javax.swing.ButtonGroup();
+        PopMenu = new javax.swing.JPopupMenu();
+        Eliminar = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jB_Listar = new javax.swing.JButton();
         jB_Battle = new javax.swing.JButton();
@@ -185,29 +188,29 @@ public class Principal extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(jTF_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jS_Fisica))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jS_Fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabel7)
                                         .addGap(28, 28, 28)
                                         .addComponent(jLabel8)
                                         .addGap(49, 49, 49)
                                         .addComponent(jLabel9))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(jS_Mental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jS_Mental, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jS_Fuerza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jS_HP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jS_Fuerza, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jS_HP, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTF_Debilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(28, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
@@ -257,10 +260,10 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jS_Fisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jS_Mental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jS_Fuerza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jS_HP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jS_HP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jS_Fisica, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jB_EVolver)
@@ -291,6 +294,11 @@ public class Principal extends javax.swing.JFrame {
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Capcom");
         treeNode1.add(treeNode2);
         jT_Personajes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jT_Personajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jT_PersonajesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jT_Personajes);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -299,6 +307,11 @@ public class Principal extends javax.swing.JFrame {
         jB_Regreso.setBackground(new java.awt.Color(102, 102, 102));
         jB_Regreso.setForeground(new java.awt.Color(255, 255, 255));
         jB_Regreso.setText("Regreso");
+        jB_Regreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_RegresoActionPerformed(evt);
+            }
+        });
 
         jL_Personajes.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(jL_Personajes);
@@ -357,6 +370,14 @@ public class Principal extends javax.swing.JFrame {
             jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 360, Short.MAX_VALUE)
         );
+
+        Eliminar.setText("jMenuItem1");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        PopMenu.add(Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -445,7 +466,7 @@ public class Principal extends javax.swing.JFrame {
         jF_Listar.setLocationRelativeTo(this);
         this.setVisible(false);
         jF_Listar.setVisible(true);
-        
+
     }//GEN-LAST:event_jB_ListarActionPerformed
 
     private void jB_BattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BattleActionPerformed
@@ -454,7 +475,7 @@ public class Principal extends javax.swing.JFrame {
         jF_Battle.setLocationRelativeTo(this);
         this.setVisible(false);
         jF_Battle.setVisible(true);
-        
+
 
     }//GEN-LAST:event_jB_BattleActionPerformed
 
@@ -464,7 +485,7 @@ public class Principal extends javax.swing.JFrame {
         jF_Crear.setLocationRelativeTo(this);
         this.setVisible(false);
         jF_Crear.setVisible(true);
-        
+
 
     }//GEN-LAST:event_jB_Crear2ActionPerformed
 
@@ -508,14 +529,61 @@ public class Principal extends javax.swing.JFrame {
         String Poder = jTF_Poder.getText();
         String Debilidad = jTF_Debilidad.getText();
 
-        Personajes.add(new Personajes(Nombre, Poder, Debilidad, uni, (int)jS_Fuerza.getValue(), (int)jS_Fisica.getValue(), (int)jS_Mental.getValue(), (int)jS_HP.getValue()));
-
+        Personajes.add(new Personajes(Nombre, Poder, Debilidad, uni, (int) jS_Fuerza.getValue(), (int) jS_Fisica.getValue(), (int) jS_Mental.getValue(), (int) jS_HP.getValue()));
+        actu_tree();
 
     }//GEN-LAST:event_jB_crear1ActionPerformed
 
     private void jB_EVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EVolverActionPerformed
-        //Eliminar
+        //Volver
+        jF_Crear.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_jB_EVolverActionPerformed
+
+    private void jB_RegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_RegresoActionPerformed
+        //Regreso
+        jF_Listar.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jB_RegresoActionPerformed
+
+    private void jT_PersonajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_PersonajesMouseClicked
+        // OPCION MENU
+        if (evt.isMetaDown()) {
+            int row = jT_Personajes.getClosestRowForLocation(evt.getX(), evt.getY());
+            jT_Personajes.setSelectionRow(row);
+            nodSel = (DefaultMutableTreeNode) jT_Personajes.getSelectionPath().getLastPathComponent();
+            DefaultListModel modelo = new DefaultListModel();
+            if (nodSel.toString().equals("DC") || nodSel.getUserObject().equals("Marvel") || nodSel.getUserObject().equals("Capcom") || nodSel.getUserObject().equals("MortalKombat")) {
+              
+
+                for (Personajes p : personajes) {
+                    if (p.getUniverso().equals(nodSel.toString())) {
+                        modelo.addElement(p);
+                    }
+                }
+
+            } else {
+                PopMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+
+                modelo.addElement(nodSel.toString());
+
+            }
+            jL_Personajes.setModel(modelo);
+        }
+
+    }//GEN-LAST:event_jT_PersonajesMouseClicked
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        int response = JOptionPane.showConfirmDialog(
+                this,"Seguro de Eliminar?","Confirm",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {DefaultTreeModel m = (DefaultTreeModel) jT_Personajes.getModel();
+            m.removeNodeFromParent(nodSel);
+            personajes.remove((Personajes) nodSel.getUserObject());
+            m.reload();
+            jL_Personajes.setModel(new DefaultListModel());
+        }
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,15 +618,64 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
-        
-        
-        
+
     }
-    
-    DefaultMutableTreeNode nodo_sel = new DefaultMutableTreeNode();
-    Personajes per_sel = new Personajes();
+
+    public void actu_tree() {
+
+        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Personajes");
+
+        DefaultMutableTreeNode dc = new DefaultMutableTreeNode("DC"),
+                marvel = new DefaultMutableTreeNode("Marvel"), capcom = new DefaultMutableTreeNode("Capcom"), mortal = new DefaultMutableTreeNode("Mortal Kombat");
+
+        for (Personajes per : personajes) {
+            DefaultMutableTreeNode nodPer = new DefaultMutableTreeNode(per);
+            switch (per.getUniverso()) {
+                case "DC": {
+                    dc.add(nodPer);
+                }
+                break;
+                case "Marvel": {
+                    marvel.add(nodPer);
+                }
+                break;
+                case "Capcom": {
+                    capcom.add(nodPer);
+                }
+                break;
+                case "Mortal Kombat": {
+                    mortal.add(nodPer);
+                }
+                break;
+            }
+        }
+
+        raiz.add(dc);
+        raiz.add(marvel);
+        raiz.add(capcom);
+        raiz.add(mortal);
+        DefaultTreeModel m = new DefaultTreeModel(raiz);
+
+        jT_Personajes.setModel(m);
+
+    }
+
+    public DefaultListModel Listar(String universo) {
+        DefaultListModel model = new DefaultListModel();
+        for (Personajes per : personajes) {
+            if (per.getUniverso().equals(universo)) {
+                model.addElement(per);
+            }
+        }
+        return model;
+    }
+
+    DefaultMutableTreeNode nodSel = new DefaultMutableTreeNode();
+    Personajes perSel = new Personajes();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JPopupMenu PopMenu;
     private javax.swing.ButtonGroup bG_Universo;
     private javax.swing.JButton jB_Battle;
     private javax.swing.JButton jB_Crear2;

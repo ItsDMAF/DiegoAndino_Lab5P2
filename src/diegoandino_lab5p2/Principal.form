@@ -45,26 +45,26 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jS_Fisica" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLabel6" max="32767" attributes="0"/>
+                                          <Component id="jS_Fisica" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Component id="jS_Mental" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jS_Mental" min="-2" pref="87" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jS_Fuerza" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jS_HP" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jS_Fuerza" min="-2" pref="76" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jS_HP" pref="86" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -74,7 +74,7 @@
                                       <Component id="jTF_Debilidad" min="-2" pref="212" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -136,10 +136,10 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jS_Fisica" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jS_Mental" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jS_Fuerza" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jS_HP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jS_Fisica" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -423,6 +423,9 @@
                       <TreeModel code="Personajes&#xa; DC&#xa; Marvel&#xa; Mortal Kombat&#xa; Capcom"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jT_PersonajesMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -444,6 +447,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Regreso"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_RegresoActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>
@@ -485,6 +491,22 @@
     </Container>
     <Component class="javax.swing.ButtonGroup" name="bG_Universo">
     </Component>
+    <Container class="javax.swing.JPopupMenu" name="PopMenu">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="Eliminar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
