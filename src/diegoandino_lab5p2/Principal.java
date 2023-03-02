@@ -16,6 +16,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         setVisible(true);
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -44,13 +46,12 @@ public class Principal extends javax.swing.JFrame {
         jS_Mental = new javax.swing.JSpinner();
         jS_Fuerza = new javax.swing.JSpinner();
         jS_HP = new javax.swing.JSpinner();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jB_modificar = new javax.swing.JButton();
+        jRB_Marvel = new javax.swing.JRadioButton();
+        jRB_CapCom = new javax.swing.JRadioButton();
+        jRB_DC = new javax.swing.JRadioButton();
+        jRB_MK = new javax.swing.JRadioButton();
         jB_crear1 = new javax.swing.JButton();
-        jB_Eliminar = new javax.swing.JButton();
+        jB_EVolver = new javax.swing.JButton();
         jF_Listar = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -113,48 +114,39 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        bG_Universo.add(jRadioButton1);
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton1.setText("Marvel");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        bG_Universo.add(jRB_Marvel);
+        jRB_Marvel.setForeground(new java.awt.Color(0, 0, 0));
+        jRB_Marvel.setText("Marvel");
+        jRB_Marvel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRB_MarvelActionPerformed(evt);
             }
         });
 
-        bG_Universo.add(jRadioButton2);
-        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton2.setText("CapCom");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        bG_Universo.add(jRB_CapCom);
+        jRB_CapCom.setForeground(new java.awt.Color(0, 0, 0));
+        jRB_CapCom.setText("CapCom");
+        jRB_CapCom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRB_CapComActionPerformed(evt);
             }
         });
 
-        bG_Universo.add(jRadioButton3);
-        jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton3.setText("DC");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        bG_Universo.add(jRB_DC);
+        jRB_DC.setForeground(new java.awt.Color(0, 0, 0));
+        jRB_DC.setText("DC");
+        jRB_DC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                jRB_DCActionPerformed(evt);
             }
         });
 
-        bG_Universo.add(jRadioButton4);
-        jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton4.setText("MK");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        bG_Universo.add(jRB_MK);
+        jRB_MK.setForeground(new java.awt.Color(0, 0, 0));
+        jRB_MK.setText("MK");
+        jRB_MK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-
-        jB_modificar.setBackground(new java.awt.Color(102, 102, 102));
-        jB_modificar.setForeground(new java.awt.Color(255, 255, 255));
-        jB_modificar.setText("Modificar");
-        jB_modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_modificarActionPerformed(evt);
+                jRB_MKActionPerformed(evt);
             }
         });
 
@@ -167,12 +159,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jB_Eliminar.setBackground(new java.awt.Color(102, 102, 102));
-        jB_Eliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jB_Eliminar.setText("Eliminar");
-        jB_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+        jB_EVolver.setBackground(new java.awt.Color(102, 102, 102));
+        jB_EVolver.setForeground(new java.awt.Color(255, 255, 255));
+        jB_EVolver.setText("Volver");
+        jB_EVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_EliminarActionPerformed(evt);
+                jB_EVolverActionPerformed(evt);
             }
         });
 
@@ -220,21 +212,19 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton1)
+                        .addComponent(jRB_Marvel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3)
+                        .addComponent(jRB_DC)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jRB_CapCom)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton4)
+                        .addComponent(jRB_MK)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jB_crear1)
-                .addGap(18, 18, 18)
-                .addComponent(jB_modificar)
-                .addGap(18, 18, 18)
-                .addComponent(jB_Eliminar)
+                .addGap(116, 116, 116)
+                .addComponent(jB_EVolver)
                 .addGap(67, 67, 67))
         );
         jPanel2Layout.setVerticalGroup(
@@ -256,10 +246,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2)
-                        .addComponent(jRadioButton3)
-                        .addComponent(jRadioButton4)))
+                        .addComponent(jRB_Marvel)
+                        .addComponent(jRB_CapCom)
+                        .addComponent(jRB_DC)
+                        .addComponent(jRB_MK)))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -272,10 +262,9 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jS_Mental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jS_Fuerza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jS_HP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jB_modificar)
-                    .addComponent(jB_Eliminar)
+                    .addComponent(jB_EVolver)
                     .addComponent(jB_crear1))
                 .addContainerGap())
         );
@@ -331,7 +320,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -357,11 +346,11 @@ public class Principal extends javax.swing.JFrame {
         jF_Battle.getContentPane().setLayout(jF_BattleLayout);
         jF_BattleLayout.setHorizontalGroup(
             jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
         jF_BattleLayout.setVerticalGroup(
             jF_BattleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -446,15 +435,32 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_ListarActionPerformed
-        // TODO add your handling code here:
+        //VENTANA LISTAR
+        this.setVisible(false);
+        jF_Listar.setVisible(true);
+        jF_Listar.setSize(514, 420);
+        jF_Listar.setLocationRelativeTo(null);
+        jF_Listar.setResizable(false);
     }//GEN-LAST:event_jB_ListarActionPerformed
 
     private void jB_BattleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_BattleActionPerformed
-        // TODO add your handling code here:
+        //VENTANA LUCHA
+        this.setVisible(false);
+        jF_Battle.setVisible(true);
+        jF_Battle.setSize(460, 360);
+        jF_Battle.setLocationRelativeTo(null);
+        jF_Battle.setResizable(false);
+
     }//GEN-LAST:event_jB_BattleActionPerformed
 
     private void jB_Crear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Crear2ActionPerformed
-        // TODO add your handling code here:
+        //VENTANA CREAR
+        this.setVisible(false);
+        jF_Crear.setVisible(true);
+        jF_Crear.setSize(400, 325);
+        jF_Crear.setLocationRelativeTo(null);
+        jF_Crear.setResizable(false);
+
     }//GEN-LAST:event_jB_Crear2ActionPerformed
 
     private void jTF_NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NombreActionPerformed
@@ -465,33 +471,30 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_PoderActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jRB_MarvelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_MarvelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jRB_MarvelActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRB_CapComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_CapComActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRB_CapComActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void jRB_DCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_DCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jRB_DCActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void jRB_MKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB_MKActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    private void jB_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_modificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jB_modificarActionPerformed
+    }//GEN-LAST:event_jRB_MKActionPerformed
 
     private void jB_crear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_crear1ActionPerformed
-        // TODO add your handling code here:
+        //Crear
+
     }//GEN-LAST:event_jB_crear1ActionPerformed
 
-    private void jB_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jB_EliminarActionPerformed
+    private void jB_EVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EVolverActionPerformed
+        //Eliminar
+    }//GEN-LAST:event_jB_EVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -532,11 +535,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bG_Universo;
     private javax.swing.JButton jB_Battle;
     private javax.swing.JButton jB_Crear2;
-    private javax.swing.JButton jB_Eliminar;
+    private javax.swing.JButton jB_EVolver;
     private javax.swing.JButton jB_Listar;
     private javax.swing.JButton jB_Regreso;
     private javax.swing.JButton jB_crear1;
-    private javax.swing.JButton jB_modificar;
     private javax.swing.JFrame jF_Battle;
     private javax.swing.JFrame jF_Crear;
     private javax.swing.JFrame jF_Listar;
@@ -554,10 +556,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRB_CapCom;
+    private javax.swing.JRadioButton jRB_DC;
+    private javax.swing.JRadioButton jRB_MK;
+    private javax.swing.JRadioButton jRB_Marvel;
     private javax.swing.JSpinner jS_Fisica;
     private javax.swing.JSpinner jS_Fuerza;
     private javax.swing.JSpinner jS_HP;
